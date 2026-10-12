@@ -56,47 +56,7 @@ The pipeline parses each file with [Unstructured](https://unstructured.io/), cle
 | LLM | OpenAI completion model (`temperature=0`) |
 | UI / uploads | Panel |
 
-## Setup
 
-```bash
-git clone https://github.com/<your-username>/rag-bot.git
-cd rag-bot
-python -m venv .venv && source .venv/bin/activate
-pip install unstructured "unstructured-client" chromadb \
-            langchain langchain-community langchain-openai \
-            lxml panel ipython
-```
-
-Set your credentials:
-
-```bash
-export OPENAI_API_KEY="sk-..."
-export UNSTRUCTURED_API_KEY="..."        # from unstructured.io
-export UNSTRUCTURED_API_URL="https://api.unstructured.io/general/v0/general"
-```
-
-> **Important:** the original notebook gets its keys from a course helper (`Utils`). Replace those calls with your own keys, for example:
-> ```python
-> import os
-> s = UnstructuredClient(
->     api_key_auth=os.environ["UNSTRUCTURED_API_KEY"],
->     server_url=os.environ["UNSTRUCTURED_API_URL"],
-> )
-> ```
-> Also, `pdf` partitioning with `hi_res` and table inference needs extra system dependencies if you run it locally instead of through the API.
-
-## Project Layout
-
-```
-rag-bot/
-├── Build_Your_Own_RAG_Bot.ipynb   # main notebook
-├── example_files/
-│   ├── donut_paper.pdf
-│   ├── donut_slide.pptx
-│   └── donut_readme.md
-├── images/                        # screenshots used in the notebook
-└── README.md
-```
 
 ## Walkthrough
 
